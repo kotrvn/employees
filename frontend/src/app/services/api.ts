@@ -1,14 +1,15 @@
-import { BaseQueryFn, EndpointDefinitions, FetchArgs, FetchBaseQueryError, FetchBaseQueryMeta, createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 import { RootState } from '../store';
-import { EndpointBuilder } from '@reduxjs/toolkit/dist/query/endpointDefinitions';
-import { RetryOptions } from '@reduxjs/toolkit/dist/query/retry';
 
 const baseQuery = fetchBaseQuery({
-    // baseUrl: 'http/localhost:3000/api',
-    // prepareHeaders: (headers, { getState }) => {
-    //     const token = (getState() as RootState).auth
-    // }
+    baseUrl: 'http://localhost:8000/api',
+    prepareHeaders(headers, { getState }) {
+        const token = (getState() as RootState).auth.user?.token || localStorage.getItem('token');
 
+        if (token && token !== null) {
+            headers.set('authorization', `Bearer ${token}`)
+        }
+    },
 });
 
 const baseQueryWithRetry = retry(baseQuery, { maxRetries: 3 })
