@@ -2,7 +2,7 @@ import { Alert } from 'antd'
 import React from 'react'
 
 type ErrorMessageProps = {
-    message: string;
+    message?: string;
 }
 
 export const ErrorMessage = ({ message }: ErrorMessageProps) => {
