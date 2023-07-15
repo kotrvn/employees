@@ -11,11 +11,14 @@ import { Register } from './pages/Register';
 
 import './index.css';
 import { Auth } from './features/auth/auth';
+import { Employes } from './pages/Employees';
+import { AddEmployee } from './pages/AddEmployee';
+import { Status } from './pages/Status';
 
 const router = createBrowserRouter([
   {
     path: Paths.home,
-    element: <h1>Employes</h1>
+    element: <Employes />
   },
   {
     path: Paths.login,
@@ -24,6 +27,16 @@ const router = createBrowserRouter([
   {
     path: Paths.register,
     element: <Register />
+  },
+
+  {
+    path: Paths.employeeAdd,
+    element: <AddEmployee />
+  },
+
+  {
+    path: `${Paths.status}/:status`,
+    element: <Status />
   },
 
 ])
