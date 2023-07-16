@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 
 
 /**
- * @route GET /api/employes
+ * @route GET /api/employees
  * @desc Получение всех сотрудников
  * @access private
  */
@@ -18,7 +18,7 @@ const all = async (req, res) => {
 }
 
 /**
- * @route POST /api/employes/add
+ * @route POST /api/employees/add
  * @desc  Добавление сотрудника
  * @access private
  */
@@ -45,7 +45,7 @@ const add = async (req, res) => {
 }
 
 /**
- * @route POST /api/employes/remove/:id
+ * @route POST /api/employees/remove/:id
  * @desc  Удаление сотрудника
  * @access private
  */
@@ -71,7 +71,7 @@ const remove = async (req, res) => {
 }
 
 /**
- * @route GET /api/employes/edit/:id
+ * @route GET /api/employees/edit/:id
  * @desc  Редактирование сотрудника
  * @access private
  */
@@ -94,7 +94,7 @@ const edit = async (req, res) => {
 }
 
 /**
- * @route GET /api/employes/edit/:id
+ * @route GET /api/employees/edit/:id
  * @desc  Редактирование сотрудника
  * @access private
  */

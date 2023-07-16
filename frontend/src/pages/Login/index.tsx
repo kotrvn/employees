@@ -11,44 +11,44 @@ import { isErrorWithMessage } from '../../utils/isErrorWithMessage'
 import { ErrorMessage } from '../../components/ErrorMessage'
 
 export const Login = () => {
-  const navigate = useNavigate()
-  const [loginUser, loginUserResult] = useLoginMutation();
-  const [error, setError] = useState('');
+    const navigate = useNavigate()
+    const [loginUser, loginUserResult] = useLoginMutation();
+    const [error, setError] = useState('');
 
-  const login = async (data: UserData) => {
-    try {
-      await loginUser(data).unwrap()
-      navigate('/')
-    } catch (error) {
-      const mayBeError = isErrorWithMessage(error)
+    const login = async (data: UserData) => {
+        try {
+            await loginUser(data).unwrap()
+            navigate('/')
+        } catch (error) {
+            const mayBeError = isErrorWithMessage(error)
 
-      if (mayBeError) {
-        setError(error.data.message)
-      } else {
-        setError('Неизвестная ошибка')
-      }
+            if (mayBeError) {
+                setError(error.data.message)
+            } else {
+                setError('Неизвестная ошибка')
+            }
+        }
+
     }
-    
-  }
 
-  return (
-    <Layout>
-        <Row align={'middle'} justify={'center'}>
-          <Card title={'Войдите'} style={{width: '30rem'}}>
-            <Form onFinish={login}>
-                <CustomInput type="email" name='email' placeholder='Email' />
-                <PasswordInput name={'password'} placeholder={'Пароль'} />
-                <CustomButton type='primary' htmlType='submit' loading={false}>Войти</CustomButton>
-            </Form>
-            <Space direction={'vertical'} size={'large'}>
-              <Typography.Text>
-                Нет аккаунта? <Link to={Paths.register}>Зарегистрируйтесь</Link>
-              </Typography.Text>
-              <ErrorMessage message={ error } />
-            </Space>
-          </Card>
-        </Row>
-    </Layout>
-   
-  )
+    return (
+        <Layout>
+            <Row align={'middle'} justify={'center'}>
+                <Card title={'Войдите'} style={{ width: '30rem' }}>
+                    <Form onFinish={login}>
+                        <CustomInput type="email" name='email' placeholder='Email' />
+                        <PasswordInput name={'password'} placeholder={'Пароль'} />
+                        <CustomButton type='primary' htmlType='submit' loading={false}>Войти</CustomButton>
+                    </Form>
+                    <Space direction={'vertical'} size={'large'}>
+                        <Typography.Text>
+                            Нет аккаунта? <Link to={Paths.register}>Зарегистрируйтесь</Link>
+                        </Typography.Text>
+                        <ErrorMessage message={error} />
+                    </Space>
+                </Card>
+            </Row>
+        </Layout>
+
+    )
 }

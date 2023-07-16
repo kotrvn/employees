@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/api/user', require('./routes/users'));
-app.use('/api/employees', require('./routes/emloyees'));
+app.use('/api/employees', require('./routes/employees'));
 
 
 // app.listen(PORT, () => {

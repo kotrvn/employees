@@ -21,9 +21,11 @@ export const EmployeeForm = ({onFinish, btnText, title, error, employee}: Employ
             <CustomInput name={'lastName'} placeholder={'Фамилия'}  />
             <CustomInput type='number'  name={'age'} placeholder={'Возраст'}  />
             <CustomInput name={'address'} placeholder={'Адрес'}  />
-            <Space>
-                <ErrorMessage message={error} />
+            <Space>  
                 <CustomButton htmlType={'submit'}>{btnText}</CustomButton>
+            </Space>
+            <Space>
+              <ErrorMessage message={error} />
             </Space>
         </Form>
 

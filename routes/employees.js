@@ -14,7 +14,7 @@ router.get('/:id', auth, employee);
 router.post('/add', auth, add);
 
 /* Удаление сотрудника */
-router.post('/delete/:id', auth, remove);
+router.post('/remove/:id', auth, remove);
 
 /* Редакитрование сотрудника */
 router.put('/edit/:id', auth, edit);
