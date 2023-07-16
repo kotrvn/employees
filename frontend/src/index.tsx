@@ -14,6 +14,8 @@ import { Auth } from './features/auth/auth';
 import { Employes } from './pages/Employees';
 import { AddEmployee } from './pages/AddEmployee';
 import { Status } from './pages/Status';
+import { Employee } from './pages/Employee';
+import { EditEmployee } from './pages/EditEmployee';
 
 const router = createBrowserRouter([
   {
@@ -33,10 +35,17 @@ const router = createBrowserRouter([
     path: Paths.employeeAdd,
     element: <AddEmployee />
   },
-
   {
     path: `${Paths.status}/:status`,
     element: <Status />
+  },
+  {
+    path: `${Paths.employee}/:id`,
+    element: <Employee />
+  },
+  {
+    path: `${Paths.employeeEdit}/:id`,
+    element: <EditEmployee />
   },
 
 ])
